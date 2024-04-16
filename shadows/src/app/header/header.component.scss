@@ -1,0 +1,27 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgba(66, 66, 66, 0.3);
+    color: white;
+
+    .eve_logo {
+        order: 1;
+        width: 20em;
+        height: 10em;    
+    
+        &__picture {
+            width: 10em;
+            margin-top: 3em;
+            margin-left: 3em;
+        }
+    }
+
+    &__content {
+        order: 2;
+        flex: 1;
+    }
+}
+
+
+
