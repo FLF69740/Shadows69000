@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
+import { StartHeadComponent } from '../start-head/start-head.component';
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [StartHeadComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
