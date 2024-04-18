@@ -7,3 +7,29 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.landing-body-container {
+    background-color: white;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.landing_box_1 {
+    margin: 0;
+    order: 1;
+    display: flex;
+    flex: 1;
+}
+
+.landing_box_2 {
+    order: 2;
+    display: flex;
+    flex: 1;
+}
+
+.landing_box_3 {
+    order: 3;
+    display: flex;
+    flex: 1;
+}

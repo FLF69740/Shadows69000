@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgba(66, 66, 66, 0.5);
-    height: 7em;
+    height: 7vh;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -23,7 +23,7 @@
             color: cyan;
         }
     }
-    
+
     &__signature {
         margin-right: 3em;
     }
