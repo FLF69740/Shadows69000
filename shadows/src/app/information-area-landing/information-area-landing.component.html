@@ -1,1 +1,7 @@
-<p class="temp">information-area-landing works!</p>
+<div class="landing-section-information">
+    <div class="landing-section-information__box">
+        @for (item of linesInformation; track item) {
+            <app-information-line-area-landing [informationLine]="item"></app-information-line-area-landing>
+        }
+    </div>
+</div>
