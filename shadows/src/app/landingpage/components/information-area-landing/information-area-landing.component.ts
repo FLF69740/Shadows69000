@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { InformationLineAreaLandingComponent } from '../information-line-area-landing/information-line-area-landing.component';
-import { LineInformationLanding } from '../model/line-information-landing.model';
+import { LineInformationLanding } from '../../../core/model/line-information-landing.model';
 
 @Component({
   selector: 'app-information-area-landing',

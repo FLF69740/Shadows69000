@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../../../core/components/header/header.component';
+import { FooterComponent } from '../../../core/components/footer/footer.component';
 import { InformationAreaLandingComponent } from '../information-area-landing/information-area-landing.component';
 import { LogoAreaLandingComponent } from '../logo-area-landing/logo-area-landing.component';
 import { PasswordAreaLandingComponent } from '../password-area-landing/password-area-landing.component';
