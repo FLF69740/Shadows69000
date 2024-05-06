@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { StartHeadComponent } from '../start-head/start-head.component';
+import { StartHeadComponent } from '../../../landingpage/components/start-head/start-head.component';
 
 @Component({
   selector: 'app-header',

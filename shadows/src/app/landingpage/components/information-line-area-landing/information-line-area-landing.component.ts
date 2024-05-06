@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LineInformationLanding } from '../model/line-information-landing.model';
+import { LineInformationLanding } from '../../../core/model/line-information-landing.model';
 
 @Component({
   selector: 'app-information-line-area-landing',
