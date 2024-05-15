@@ -20,17 +20,31 @@ export class MailFormComponent implements OnInit{
   textExplication5: String = "The last validation step will be a confirmation of the request on the corporate or alliance channels in eve online."
   textExplication6: String = "Fly safe!";
 
+  sendingConfirmationTxt: String = "your email and key have been sent";
+
   constructor(private router: Router){}
 
   email!: String;
   key!: String;
+  sended: boolean = false;
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    console.log(this.email + " - " + this.key);
-    this.router.navigateByUrl('');
+    if (this.checkEmptyOrNull(this.email) == false && this.checkEmptyOrNull(this.key) == false) {
+      console.log(this.email + " - " + this.key);
+      this.sended = true
+    }
+
+  }
+
+  private checkEmptyOrNull(value: String): boolean {
+    if (value == null || value == "") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   
