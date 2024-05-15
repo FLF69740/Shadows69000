@@ -1,3 +1,59 @@
-.temp {
-    color: wheat;
+$form_margin_left: 15em;
+
+.mail-form-body{
+    color: white;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+
+    &__title{
+        font-size: 24px;
+        background-color: rgba(66, 66, 66, 0.8);
+        border: 1px aqua solid;
+        margin: 4em;
+        padding: 2em;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form--label {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+        margin-left: $form_margin_left;
+    }
+
+    &__form--area {
+        color: white;
+        font-size: 1em;
+        width: 20%;
+        background-color: rgba(66, 66, 66, 0.4);
+        padding: 1em;
+        border-radius: 12px;
+        border-color: aqua;
+        margin-bottom: 1em;
+        margin-left: $form_margin_left;
+    }
+
+    &__sending {
+        margin-top: 2em;
+        font-size: 1em;
+        color: white;
+        background-color: rgba(66, 66, 66, 0.2);
+        border: 1px aqua solid;
+        padding: 0.5em;
+        border-radius: 12px;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin-left: $form_margin_left;
+
+        &:hover {
+            background-color: rgba(66, 66, 66, 0.8);
+        }
+    }
+
+
 }

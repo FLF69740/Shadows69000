@@ -1,1 +1,27 @@
-<p class="temp">mail-form !</p>
+<div class="mail-form-body">
+    <div class="mail-form-body__title">
+        <p>{{textExplication1}}</p>
+        <p>{{textExplication2}}</p>
+        <p>{{textExplication3}}</p>
+        <ul>
+            <li>{{textExplication4}}</li>
+            <li>{{textExplication5}}</li>
+        </ul>
+        <p>{{textExplication6}}</p>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+        <p class="mail-form-body__form">
+            <label class="mail-form-body__form--label">EMAIL</label>
+            <input type="email" name="email" class="mail-form-body__form--area" [(ngModel)]="email">
+        </p>
+        <p class="mail-form-body__form">
+            <label class="mail-form-body__form--label">KEY</label>
+            <input type="password" name="key" class="mail-form-body__form--area" [(ngModel)]="key">
+        </p>
+        <div class="mail-form-body__sub">
+            <input type="submit" class="mail-form-body__sending" value="SEND">
+        </div>
+    </form>
+    
+</div>
+
