@@ -1,3 +1,65 @@
-.temp {
-    color: wheat;
+$form_margin_left: 15em;
+
+@mixin shadow-panel($alpha, $pad, $fsize) {
+    background-color: rgba(66, 66, 66, $alpha);
+    border: 1px aqua solid;
+    padding: $pad;
+    font-size: $fsize;
+}
+
+.mail-form-body{
+    color: white;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+
+    &__title{
+        @include shadow-panel(0.8, 2em, 24px);
+        margin: 4em;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form--label {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+        margin-left: $form_margin_left;
+    }
+
+    &__form--area {
+        color: white;
+        width: 20%;
+        @include shadow-panel(0.4, 1em, 1em);
+        border-radius: 12px;
+        margin-bottom: 1em;
+        margin-left: $form_margin_left;
+    }
+
+    &__sending {
+        margin-top: 2em;
+        color: white;
+        @include shadow-panel(0.2, 0.5em, 1em);
+        border-radius: 12px;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin-left: $form_margin_left;
+
+        &:hover {
+            background-color: rgba(66, 66, 66, 0.8);
+        }
+    }
+
+    &__sending-confirmation {
+        margin-left: $form_margin_left;
+        margin-right: $form_margin_left;
+        margin-top: 5em;
+        @include shadow-panel(0.8, 3em, 24px);
+        text-align: center;
+    }
+
+
 }
