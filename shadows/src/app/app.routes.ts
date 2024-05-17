@@ -9,5 +9,11 @@ export const routes: Routes = [
         loadChildren: () =>
             import('./contact/contact-routing.module')
                 .then(m => m.contactRoutes)
+    },
+    {
+        path: 'welcome',
+        loadChildren: () =>
+            import('./main/main-routing.module')
+                .then(m => m.mainRoutes)
     }
 ];

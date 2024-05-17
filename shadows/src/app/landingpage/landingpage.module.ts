@@ -6,6 +6,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LogoAreaLandingComponent } from './components/logo-area-landing/logo-area-landing.component';
 import { PasswordAreaLandingComponent } from './components/password-area-landing/password-area-landing.component';
 import { StartHeadComponent } from './components/start-head/start-head.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,8 @@ import { StartHeadComponent } from './components/start-head/start-head.component
     LogoAreaLandingComponent,
     PasswordAreaLandingComponent,
     StartHeadComponent,
+    RouterOutlet,
+    RouterModule
   ],
   exports: [
     InformationAreaLandingComponent,
