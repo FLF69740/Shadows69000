@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,27 +9,20 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   signature : string = "@SHADOWS69000"
 
-  buttonText: string = "CONTACT";
-
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  @Input('formmail') buttonText!: String;
 
-  public onClickMailForm(){
+  public onClickMailForm(){    
     if (this.buttonText === "CONTACT") {
-      this.buttonText = "BACK";
       this.router.navigateByUrl('mailform');
     } else {
-      this.buttonText = "CONTACT";
       this.router.navigateByUrl('');
-    }
-      
-    
+    }      
     
   }
 

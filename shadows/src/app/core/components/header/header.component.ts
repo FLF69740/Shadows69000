@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { StartHeadComponent } from '../../../landingpage/components/start-head/start-head.component';
+import { HeaderAndFooterService } from '../../services/header-and-footer.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,13 @@ import { StartHeadComponent } from '../../../landingpage/components/start-head/s
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+
+  constructor(private service: HeaderAndFooterService){}
+
+
+  ngOnInit(): void {
+    console.log("HEADER COMPONENT : " + this.service.title);
+  }
 
 }
