@@ -1,5 +1,5 @@
 <html class="htmlpage">
-    <app-header></app-header>
+    <app-header [section]="headerType"></app-header>
     <router-outlet (activate)="onActivate($event)"></router-outlet>
     <app-footer [formmail]="buttonText"></app-footer>
 </html>

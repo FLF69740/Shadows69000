@@ -5,6 +5,7 @@ import { CoreModule } from './core/core.module';
 import { LandingpageModule } from './landingpage/landingpage.module';
 import { ContactModule } from './contact/contact.module';
 import { HeaderAndFooterService } from './core/services/header-and-footer.service';
+import { State } from './core/services/state';
 
 @Component({
   selector: 'app-root',
@@ -22,16 +23,20 @@ import { HeaderAndFooterService } from './core/services/header-and-footer.servic
 export class AppComponent implements OnInit {
 
   buttonText!: String;
+  headerType!: String;
 
   constructor(private service: HeaderAndFooterService){}
 
   ngOnInit(): void {
-    this.buttonText = "CONTACT";
+    this.buttonText = State.footerContact;
+    this.headerType = State.headerLanding;
   }
 
   onActivate(newRoute: object) {
     console.log("App component -> activate signal : " + newRoute.constructor.name);
     this.buttonText = this.definefooterButtonText(newRoute.constructor.name);
+    this.headerType = this.defineHeaderState(newRoute.constructor.name);
+    console.log("MASTER - HEADER : " + this.headerType);
     console.log("Service : " + this.service.title);
   }
 
@@ -39,12 +44,25 @@ export class AppComponent implements OnInit {
     switch(data) {
       case "_MailFormComponent" : 
         this.service.title = "Section Mail"; 
-        return "BACK";
+        return State.footerBack;
       case "_LandingPageComponent" : 
         this.service.title = "Section Landing"; 
-        return "CONTACT";
+        return State.footerContact;
+      case "_WelcomeUiComponent" :
+        this.service.title = "Section Welcome";
+        return State.footerWelcome;
       default : 
-        return "CONTACT";
+        return State.footerContact;
+    }
+  }
+
+  private defineHeaderState(data: String) : String {
+    switch(data) {
+      case "_WelcomeUiComponent" :
+        this.service.title = "Section Welcome";
+        return State.headerMain;
+      default : 
+        return State.headerLanding;
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-password-area-landing',
@@ -10,11 +11,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class PasswordAreaLandingComponent {
 
+  public constructor(private router: Router){}
+
   email!: String;
   password!: String;
 
   public onPasswordSubmit() {
     console.log("CLICK !!! " + this.email + " - " + this.password);
+    this.router.navigateByUrl('welcome');
   }
 
 }
