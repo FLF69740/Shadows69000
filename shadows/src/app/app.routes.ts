@@ -1,9 +1,19 @@
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './landingpage/components/landing-page/landing-page.component';
-import { MailFormComponent } from './contact/components/mail-form/mail-form.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/landing', pathMatch: 'full'},
     { path: 'landing', component: LandingPageComponent},
-    { path: 'mailform', component: MailFormComponent}
+    { 
+        path: 'mailform', 
+        loadChildren: () =>
+            import('./contact/contact-routing.module')
+                .then(m => m.contactRoutes)
+    },
+    {
+        path: 'welcome',
+        loadChildren: () =>
+            import('./main/main-routing.module')
+                .then(m => m.mainRoutes)
+    }
 ];

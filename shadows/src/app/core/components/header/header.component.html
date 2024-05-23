@@ -6,7 +6,13 @@
             </a>
         </div>
         <div class="header-container__content">
-            <app-start-head></app-start-head>
+            @if (headerType === "headerLanding") {
+                <app-start-head></app-start-head>
+            }
+            @if (headerType === "headerMain") {
+                <app-main-head></app-main-head>
+            }
+            
         </div>
     </div>
     

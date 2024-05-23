@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { HeaderAndFooterService } from '../../../core/services/header-and-footer.service';
 
 @Component({
   selector: 'app-mail-form',
@@ -22,19 +22,23 @@ export class MailFormComponent implements OnInit{
 
   sendingConfirmationTxt: String = "your email and key have been sent";
 
-  constructor(private router: Router){}
+  constructor(private service: HeaderAndFooterService){}
+
+
 
   email!: String;
   key!: String;
   sended: boolean = false;
 
   ngOnInit(): void {
+
   }
 
   onSubmit(): void {
     if (this.checkEmptyOrNull(this.email) == false && this.checkEmptyOrNull(this.key) == false) {
       console.log(this.email + " - " + this.key);
       this.sended = true
+      this.service.title = "Autre Chose";
     }
 
   }
