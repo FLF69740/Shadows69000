@@ -1,0 +1,31 @@
+.footer-contrainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(66, 66, 66, 0.5);
+    height: 7vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+
+    .footer-container__astext {
+        color: white;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        margin-left: 3em;
+
+        &:hover {
+            color: cyan;
+        }
+    }
+
+    &__signature {
+        margin-right: 3em;
+    }
+}
+

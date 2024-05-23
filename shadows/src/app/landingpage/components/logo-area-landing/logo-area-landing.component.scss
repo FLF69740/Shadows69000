@@ -1,0 +1,16 @@
+.landing-section-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__picture {
+        background-color: rgba(66, 66, 66, 0.2);
+        padding: 3em;
+        margin: auto;
+        width: auto;
+        border-radius: 12px 12px 36px 36px;
+        box-shadow: 16px 16px 30px black;
+    }
+}
+
