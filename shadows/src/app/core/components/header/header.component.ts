@@ -33,10 +33,30 @@ export class HeaderComponent implements OnInit{
   }
 
   onItemHeaderChange(itemName: String) {
-    
-    if (itemName === State.headerMainDeconnection) {
-      console.log("CHILD : " + itemName);
-      this.router.navigateByUrl('');
+    console.log("CHILD : " + itemName);
+
+    switch(itemName) {
+      case State.headerMainDeconnection :
+        this.router.navigateByUrl('');
+        break;
+      case State.headerMainProduction :
+        this.router.navigateByUrl('welcome/production');
+        break;
+      case State.headerMainReactions :
+        this.router.navigateByUrl('welcome/reaction');
+        break;
+      case State.headerMainPlanets :
+        this.router.navigateByUrl('welcome/planets');
+        break;
+      case State.headerMainMails :
+        this.router.navigateByUrl('welcome/mails');
+        break;
+      case State.headerMainSettings :
+        this.router.navigateByUrl('welcome/settings');
+        break;
+      case State.headerMainHome :
+        this.router.navigateByUrl('welcome');
+        break;
     }
   }
 
