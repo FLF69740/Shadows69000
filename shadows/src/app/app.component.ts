@@ -51,6 +51,21 @@ export class AppComponent implements OnInit {
       case "_WelcomeUiComponent" :
         this.service.title = "Section Welcome";
         return State.footerWelcome;
+      case "_ProductionUiComponent" :
+        this.service.title = "Section " + State.headerMainProduction;
+        return State.footerWelcome;
+      case "_ReactionUiComponent" :
+        this.service.title = "Section " + State.headerMainProduction;
+        return State.footerWelcome;
+      case "_PlanetsUiComponent" :
+        this.service.title = "Section " + State.headerMainProduction;
+        return State.footerWelcome;
+      case "_MailsUiComponent" :
+        this.service.title = "Section " + State.headerMainProduction;
+        return State.footerWelcome;
+      case "_SettingsComponent" :
+        this.service.title = "Section " + State.headerMainProduction;
+        return State.footerWelcome;
       default : 
         return State.footerContact;
     }
@@ -59,7 +74,16 @@ export class AppComponent implements OnInit {
   private defineHeaderState(data: String) : String {
     switch(data) {
       case "_WelcomeUiComponent" :
-        this.service.title = "Section Welcome";
+        return State.headerMain;
+      case "_ProductionUiComponent" :
+        return State.headerMain;
+      case "_ReactionUiComponent" :
+        return State.headerMain;
+      case "_PlanetsUiComponent" :
+        return State.headerMain;
+      case "_MailsUiComponent" :
+        return State.headerMain;
+      case "_SettingsComponent" :
         return State.headerMain;
       default : 
         return State.headerLanding;
