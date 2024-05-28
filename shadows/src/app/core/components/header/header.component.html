@@ -6,11 +6,11 @@
             </a>
         </div>
         <div class="header-container__content">
-            @if (headerType === "headerLanding") {
+            @if (headerType === startHeadString) {
                 <app-start-head></app-start-head>
             }
-            @if (headerType === "headerMain") {
-                <app-main-head></app-main-head>
+            @if (headerType === mainHeadString) {
+                <app-main-head (mainChoice)="onItemHeaderChange($event)"></app-main-head>
             }
             
         </div>

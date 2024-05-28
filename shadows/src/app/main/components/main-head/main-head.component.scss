@@ -1,0 +1,46 @@
+.main-head-container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+
+    &__nav {
+        flex: 1;
+        display: flex;
+        margin-left: 8em;
+        gap: 3em;
+
+        button {
+            background-color: transparent;
+            font-size: 1em;
+            color: white;
+            border: none;
+            padding: 1em;
+            width: 10em;
+            border-radius: 1em;
+            border-bottom: 0px aqua solid;
+        }
+
+        .button-selected {
+            border-bottom: 1px aqua solid;
+        }
+
+        button:hover {
+            background: linear-gradient(10deg,
+             rgba(21,220,220,0.4) 0%, 
+             rgba(21,220,220,0.1) 35%, 
+             rgba(0,0,0,0) 50%,
+             rgba(0,0,0,0) 100%
+             );
+        }
+    }
+
+    &__shadow-oculus{
+        order: 2;
+        font-size: 2.5em;
+        margin-right: 1em;
+    }
+}
+

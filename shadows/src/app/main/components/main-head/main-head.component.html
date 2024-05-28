@@ -1,1 +1,13 @@
-<p>main-head works!</p>
+<div class="main-head-container">
+    <nav class="main-head-container__nav">
+        <button (click)="onClickMainChoice(headerItem[0])" [ngClass]="{ 'button-selected': headerItem[0].activated}">HOME</button>
+        <button (click)="onClickMainChoice(headerItem[1])" [ngClass]="{ 'button-selected': headerItem[1].activated }">PRODUCTION</button>
+        <button (click)="onClickMainChoice(headerItem[2])" [ngClass]="{ 'button-selected': headerItem[2].activated }">REACTION</button>
+        <button (click)="onClickMainChoice(headerItem[3])" [ngClass]="{ 'button-selected': headerItem[3].activated }">PLANETS</button>
+        <button (click)="onClickMainChoice(headerItem[4])" [ngClass]="{ 'button-selected': headerItem[4].activated }">MAILS</button>
+        <button (click)="onClickMainChoice(headerItem[5])" [ngClass]="{ 'button-selected': headerItem[5].activated }">SETTINGS</button>
+        <button (click)="onClickMainChoice(headerItem[6])" [ngClass]="{ 'button-selected': headerItem[6].activated }">DECONNECTION</button>
+    </nav>
+    <div class="main-head-container__shadow-oculus">SHADOWS OCULUS</div>
+</div>
+

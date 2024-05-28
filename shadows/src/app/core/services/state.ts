@@ -3,5 +3,12 @@ export enum State {
     footerBack = "BACK",
     footerWelcome = "",
     headerLanding = "headerLanding",
-    headerMain = "headerMain"
+    headerMain = "headerMain",
+    headerMainHome = "HOME",
+    headerMainProduction = "PRODUCTION",
+    headerMainReactions = "REACTION",
+    headerMainPlanets = "PLANETS",
+    headerMainMails = "MAILS",
+    headerMainSettings = "SETTINGS",
+    headerMainDeconnection = "DECONNECTION"
 }
