@@ -6,16 +6,18 @@ import { LandingpageModule } from './landingpage/landingpage.module';
 import { ContactModule } from './contact/contact.module';
 import { HeaderAndFooterService } from './core/services/header-and-footer.service';
 import { State } from './core/services/state';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterModule,
+    HttpClientModule,
     RouterOutlet, 
     CoreModule,
     LandingpageModule,
-    ContactModule
+    ContactModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
