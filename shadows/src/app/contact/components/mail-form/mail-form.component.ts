@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeaderAndFooterService } from '../../../core/services/header-and-footer.service';
+import { RequestService } from '../../../core/services/request.service';
 
 @Component({
   selector: 'app-mail-form',
@@ -22,7 +23,10 @@ export class MailFormComponent implements OnInit{
 
   sendingConfirmationTxt: String = "your email and key have been sent";
 
-  constructor(private service: HeaderAndFooterService){}
+  constructor(
+    private service: HeaderAndFooterService,
+    private req: RequestService
+  ){}
 
 
 
@@ -39,6 +43,9 @@ export class MailFormComponent implements OnInit{
       console.log(this.email + " - " + this.key);
       this.sended = true
       this.service.title = "Autre Chose";
+      this.req.sendEmail(this.key, this.email).subscribe(
+        data => console.log(data)
+      )
     }
 
   }

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EveCharacter } from '../model/EveCharacter.model';
+import { DBKey } from '../model/DBKey.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +34,27 @@ export class RequestService {
       })
     };
     console.log(httpOptions.headers);
-    return this.http.get<EveCharacter[]>('http://localhost:9000/evecharacters', httpOptions);
+    return this.http.get<EveCharacter[]>('http://localhost:9000/api/evecharacters', httpOptions);
   }
+
+  sendEmail(key: String, email: String): Observable<DBKey> {
+    const body = {
+      "id":0,
+      "email":email,
+      "activated":false,
+      "eveid":null
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      }
+    )
+    };
+    console.log(httpOptions.headers);
+    return this.http.put<DBKey>(`http://localhost:9000/dbkey/${key}`, body, httpOptions);
+  }
+
+  // auth internal method
 
   private getCredentials(email: String, password: String): String {
     return btoa(`${email}:${password}`);
