@@ -9,7 +9,10 @@
         </ul>
         <p>{{textExplication6}}</p>
     </div>
-    @if (sended === false) {
+    @if (captchaValidation === false) {
+        <re-captcha class="mail-form-body__captcha" (resolved)="onCaptchaResolved($event)" siteKey={{captchaKey}}></re-captcha>
+    }
+    @if (sended === false && captchaValidation === true) {
         <form (ngSubmit)="onSubmit()">
             <p class="mail-form-body__form">
                 <label class="mail-form-body__form--label">EMAIL</label>
@@ -24,9 +27,10 @@
             </div>
         </form>
     }
-    @if (sended === true) {
+    @if (sended === true && captchaValidation === true) {
         <div class="mail-form-body__sending-confirmation">
-            {{ sendingConfirmationTxt }}
+            @if (keyPositiveAnswer === true) { {{ sendingConfirmationTxt }} }
+            @if (keyPositiveAnswer === false) { {{ sendingFailureTxt }} }
         </div>
     } 
 </div>
