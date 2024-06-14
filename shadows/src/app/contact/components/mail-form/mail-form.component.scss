@@ -61,5 +61,8 @@ $form_margin_left: 15em;
         text-align: center;
     }
 
+    &__captcha {
+        margin-left: $form_margin_left;
+    }
 
 }

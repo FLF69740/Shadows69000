@@ -5,6 +5,7 @@ import { HeaderAndFooterService } from '../../services/header-and-footer.service
 import { MainHeadComponent } from '../../../main/components/main-head/main-head.component';
 import { State } from '../../services/state';
 import { Router } from '@angular/router';
+import { RequestService } from '../../services/request.service';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit{
 
   public constructor(
     private service: HeaderAndFooterService,
+    private auth: RequestService,
     private router: Router
   ){}
 
@@ -37,6 +39,7 @@ export class HeaderComponent implements OnInit{
 
     switch(itemName) {
       case State.headerMainDeconnection :
+        this.auth.setToken(undefined);
         this.router.navigateByUrl('');
         break;
       case State.headerMainProduction :

@@ -7,6 +7,7 @@ import { LogoAreaLandingComponent } from './components/logo-area-landing/logo-ar
 import { PasswordAreaLandingComponent } from './components/password-area-landing/password-area-landing.component';
 import { StartHeadComponent } from './components/start-head/start-head.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
@@ -19,7 +20,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     PasswordAreaLandingComponent,
     StartHeadComponent,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     InformationAreaLandingComponent,

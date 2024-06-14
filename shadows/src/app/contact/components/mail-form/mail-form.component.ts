@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeaderAndFooterService } from '../../../core/services/header-and-footer.service';
+import { RequestService } from '../../../core/services/request.service';
+import { mCaptcha } from '../../../../environments/environments';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-mail-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RecaptchaModule],
   templateUrl: './mail-form.component.html',
   styleUrl: './mail-form.component.scss'
 })
@@ -21,14 +24,22 @@ export class MailFormComponent implements OnInit{
   textExplication6: String = "Fly safe!";
 
   sendingConfirmationTxt: String = "your email and key have been sent";
+  sendingFailureTxt: String = "your key proposal is listed. Try again with a valid key.";
 
-  constructor(private service: HeaderAndFooterService){}
+  captchaKey: String = mCaptcha.KEY_TO_READ;
+
+  constructor(
+    private service: HeaderAndFooterService,
+    private req: RequestService,
+  ){}
 
 
 
   email!: String;
   key!: String;
   sended: boolean = false;
+  captchaValidation: boolean = false;
+  keyPositiveAnswer: boolean = false; 
 
   ngOnInit(): void {
 
@@ -37,8 +48,16 @@ export class MailFormComponent implements OnInit{
   onSubmit(): void {
     if (this.checkEmptyOrNull(this.email) == false && this.checkEmptyOrNull(this.key) == false) {
       console.log(this.email + " - " + this.key);
-      this.sended = true
+      
       this.service.title = "Autre Chose";
+      this.req.sendEmail(this.key, this.email).subscribe(
+        data => {
+          if (data != null) {
+            this.keyPositiveAnswer = true;
+          };
+          this.sended = true;
+        } 
+      )
     }
 
   }
@@ -48,6 +67,12 @@ export class MailFormComponent implements OnInit{
       return true;
     } else {
       return false;
+    }
+  }
+
+  onCaptchaResolved(response: String | null) {
+    if (response != null) {
+      this.captchaValidation = true;
     }
   }
 
