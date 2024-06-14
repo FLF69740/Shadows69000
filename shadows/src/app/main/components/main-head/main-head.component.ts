@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HeaderItem } from '../../../core/model/header-item.model';
-import { State } from '../../../core/services/state';
+import { HeaderAndFooterService } from '../../../core/services/header-and-footer.service';
 
 @Component({
   selector: 'app-main-head',
@@ -12,68 +12,22 @@ import { State } from '../../../core/services/state';
 })
 export class MainHeadComponent implements OnInit{
 
+  constructor(private headerService: HeaderAndFooterService){}
+
   headerItem!: HeaderItem[];
 
   @Output() mainChoice = new EventEmitter<String>();
   
 
   ngOnInit(): void {
-    this.headerItem = [
-      {
-        id: 0,
-        name: State.headerMainHome,
-        activated: true
-      },
-      {
-        id: 1,
-        name: State.headerMainProduction,
-        activated: false
-      },
-      {
-        id: 2,
-        name: State.headerMainReactions,
-        activated: false
-      },
-      {
-        id: 3,
-        name: State.headerMainPlanets,
-        activated: false
-      },
-      {
-        id: 4,
-        name: State.headerMainMails,
-        activated: false
-      },
-      {
-        id: 5,
-        name: State.headerMainSettings,
-        activated: false
-      },
-      {
-        id: 6,
-        name: State.headerMainDeconnection,
-        activated: false
-      }
-    ];
+    this.headerItem = this.headerService.getHeaders();
   }
 
   onClickMainChoice(item: HeaderItem) {
-    if (item.activated === false) {
-      const idToDesactivate = this.headerItem.find((element) => element.activated === true)?.id;
-      const idToActivate = this.headerItem.find((elemenet) => elemenet.name === item.name)?.id;
-
-      if (idToDesactivate != null && idToActivate != null) {
-        this.headerItemToChange(false, idToDesactivate);
-        this.headerItemToChange(true, idToActivate);
-        this.mainChoice.emit(this.headerItem[idToActivate].name);
-      }
-      
+    const idToActivate = this.headerService.onChangeMainHeader(item)
+    if(idToActivate !== undefined) {
+      this.mainChoice.emit(this.headerItem[idToActivate].name);
     }
-    
-  }
-
-  private headerItemToChange(action: boolean, id: number) {
-    this.headerItem[id].activated = action;
   }
 
 }
