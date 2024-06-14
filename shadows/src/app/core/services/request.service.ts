@@ -11,7 +11,7 @@ export class RequestService {
 
   constructor(private http: HttpClient){}
 
-  private token: String = "";
+  private token?: String = "";
 
   getJwtToken(email: String, password: String) : Observable<String> {
     const credentials = this.getCredentials(email, password);
@@ -60,7 +60,11 @@ export class RequestService {
     return btoa(`${email}:${password}`);
   }
 
-  setToken(token: String) {
+  setToken(token?: String) {
     this.token = token;
+  }
+
+  getToken(): String | undefined {
+    return this.token;
   }
 }

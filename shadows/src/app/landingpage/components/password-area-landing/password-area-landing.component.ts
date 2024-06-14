@@ -34,8 +34,10 @@ export class PasswordAreaLandingComponent {
     if (this.email != null && this.email != "") {
       this.req.getJwtToken(this.email, this.password).subscribe(
       data => {
-        console.log(data);
-        this.req.setToken(data);
+        if (data != null) {
+          this.req.setToken(data);
+          this.router.navigateByUrl('welcome');
+        }
       }
     );
     } else {
